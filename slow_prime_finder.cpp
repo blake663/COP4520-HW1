@@ -11,6 +11,7 @@ int main() {
     sieve = vector<char>(n+1, true);
 
     cout << "starting... " << endl;
+    auto start = chrono::high_resolution_clock::now();
 
     long long count = 0;
     for (int x = 2; x <= n; x++) {
@@ -21,5 +22,8 @@ int main() {
             sieve[c] = false;
         }
     }
-    cout << count << endl;
+    auto stop = chrono::high_resolution_clock::now();
+    cout << "primes found: " << count << endl;
+    auto execution_time = chrono::duration_cast<chrono::milliseconds>(stop - start);
+    cout << "execution time: " << execution_time.count() << " milliseconds." << endl;
 }
