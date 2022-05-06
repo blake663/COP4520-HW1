@@ -2,7 +2,8 @@
 
 
 usage: <br>
-javac SingleThreadedPrimeFinder.java
+javac SingleThreadedPrimeFinder.java 
+
 java SingleThreadedPrimeFinder
 
 
