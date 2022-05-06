@@ -13,17 +13,17 @@ int main() {
     cout << "starting... " << endl;
     auto start = chrono::high_resolution_clock::now();
 
-    long long count = 0;
+    long long count = 0, sum = 0;
     for (int x = 2; x <= n; x++) {
         if (!sieve[x]) continue;
 
-        count++;
+        count++; sum+=x;
         for (int c = 2*x; c <= n; c += x) {
             sieve[c] = false;
         }
     }
     auto stop = chrono::high_resolution_clock::now();
-    cout << "primes found: " << count << endl;
+    cout << "primes found: " << count << ", sum: " << sum << endl;
     auto execution_time = chrono::duration_cast<chrono::milliseconds>(stop - start);
     cout << "execution time: " << execution_time.count() << " milliseconds." << endl;
 }
